@@ -22,8 +22,9 @@ typedef struct {
     int high2;
     std::function<void(int, int)> lambda;
 } thread_args2;
+
 void demonstration(std::function<void()> && lambda) {
-  lambda();
+    lambda();
 }
 
 void *thread_func_1(void *ptr) {
@@ -134,7 +135,7 @@ void parallel_for(int low, int high, function<void(int)>&& lambda, int nthread) 
 
     long seconds = end.tv_sec - start.tv_sec;
     long nanoseconds = end.tv_nsec - start.tv_nsec;
-    long duration = seconds * 1000000 + nanoseconds / 1000; 
+    long duration = seconds * 1000000 + nanoseconds / 1000;
 
     printf("Total Execution 1D parallel_for: %ld microseconds\n", duration);
 }
@@ -187,10 +188,11 @@ void parallel_for(int low1, int high1, int low2, int high2, function<void(int, i
 
     long seconds = end.tv_sec - start.tv_sec;
     long nanoseconds = end.tv_nsec - start.tv_nsec;
-    long duration = seconds * 1000000 + nanoseconds / 1000; 
+    long duration = seconds * 1000000 + nanoseconds / 1000;
 
     printf("Total Execution Time 2D parallel_for: %ld microseconds\n", duration);
 }
+
 int main(int argc, char **argv) {
   /* 
    * Declaration of a sample C++ lambda function
@@ -221,4 +223,3 @@ int main(int argc, char **argv) {
   return rc;
 }
 #define main user_main
-
